@@ -30,9 +30,30 @@
             :reader typeahead-results)))
 
 
-(defgeneric process-typeahead-choice (widget query)
-  (:method ((widget typeahead-widget) (query string))
-    (log:info "User entered" query)))
+(defgeneric on-select (item)
+  (:documentation "Called when user selected an item in the typeahead results.")
+  (:method ((item t))
+    (log:error "Item ~A was selected." item)
+    (values)))
+
+
+(defgeneric on-empty-selection (widget query)
+  (:documentation "Called when user entered some query but didn't selected any item, just pressed Enter.")
+  (:method ((widget typeahead-widget) query)
+    (log:error "User entered ~S but didn't choose any item." query)
+    (values)))
+
+
+(defgeneric process-typeahead-choice (widget query selected-item-idx)
+  (:method ((widget typeahead-widget) query selected-item-idx)
+    (log:error "User entered" query selected-item-idx)
+    (cond
+      (selected-item-idx
+       (let* ((items (results-items (typeahead-results widget)))
+              (selected-item (nth selected-item-idx items)))
+         (on-select selected-item)))
+      (t
+       (on-empty-selection widget query)))))
 
 
 (defgeneric update-results (widget query)
@@ -57,8 +78,11 @@
   (flet ((on-update (&key query &allow-other-keys)
            (update-results widget query)))
     (let ((action-code (reblocks/actions:make-action #'on-update)))
-      (reblocks-ui/form:with-html-form (:POST (lambda (&key query &allow-other-keys)
-                                                (process-typeahead-choice widget query)))
+      (reblocks-ui/form:with-html-form (:POST (lambda (&key query result &allow-other-keys)
+                                                (process-typeahead-choice widget
+                                                                          query
+                                                                          (when result
+                                                                            (parse-integer result)))))
         (:input :type "text"
                 :name "query"
                 :data-action-code action-code
