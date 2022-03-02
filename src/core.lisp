@@ -27,7 +27,10 @@
 
 (defwidget typeahead-widget (reblocks-ui:ui-widget)
   ((results :initform (make-instance 'typeahead-results)
-            :reader typeahead-results)))
+            :reader typeahead-results)
+   (placeholder :initform nil
+                :initarg :placeholder
+                :accessor placeholder)))
 
 
 (defgeneric on-select (item)
@@ -66,6 +69,16 @@
     (values)))
 
 
+(defgeneric hide-results (widget)
+  (:method ((widget typeahead-widget))
+    (log:info "Hiding typeahead results.")
+
+    (setf (results-items (typeahead-results widget))
+          nil)
+    (reblocks/widget:update (typeahead-results widget))
+    (values)))
+
+
 (defgeneric execute-query (widget query)
   (:method ((widget typeahead-results) query)
     (list
@@ -85,6 +98,7 @@
                                                                             (parse-integer result)))))
         (:input :type "text"
                 :name "query"
+                :placeholder (placeholder widget)
                 :data-action-code action-code
                 :class "typeahead-input"
                 :autocomplete "off")
@@ -112,20 +126,17 @@
 (defmethod reblocks/widget:render ((widget typeahead-results))
   (let ((items (results-items widget)))
     (reblocks/html:with-html
-      (cond
-        (items
-         (:ul
-          (loop for item in items
-                for idx upfrom 0
-                do (:li (:input :type "radio"
-                                :name "result"
-                                :id (format nil "choice-~A" idx)
-                                :onchange "this.form.onsubmit()"
-                                :value idx)
-                        (:label :for (format nil "choice-~A" idx)
-                                (reblocks/widget:render item))))))
-        (t
-         (:p "No results."))))))
+      (when items
+        (:ul
+         (loop for item in items
+               for idx upfrom 0
+               do (:li (:input :type "radio"
+                               :name "result"
+                               :id (format nil "choice-~A" idx)
+                               :onchange "this.form.onsubmit()"
+                               :value idx)
+                       (:label :for (format nil "choice-~A" idx)
+                               (reblocks/widget:render item)))))))))
 
 
 (defmethod reblocks/dependencies:get-dependencies ((widget typeahead-widget))

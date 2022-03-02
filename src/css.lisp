@@ -8,7 +8,17 @@
   (reblocks-lass:make-dependency
     '(body
       (.typeahead-widget
-      
+
+       
+       
+       (.typeahead-results
+        :background-color "rgba(255, 255, 255, 0.95)"
+        :box-shadow 0 0 0.5rem "rgba(0, 0, 0, 0.5)"
+        :position absolute
+        ((:and p :last-child)
+         :margin-bottom 0))
+       
+       
        ((.typeahead-results > ul)
         :list-style-type none
         :margin 0
