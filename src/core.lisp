@@ -54,8 +54,10 @@
       (selected-item-idx
        (let* ((items (results-items (typeahead-results widget)))
               (selected-item (nth selected-item-idx items)))
+         (log:debug "Opening selected item" selected-item)
          (on-select selected-item)))
       (t
+       (log:debug "Opening empty selection")
        (on-empty-selection widget query)))))
 
 
@@ -128,14 +130,21 @@
     (reblocks/html:with-html
       (when items
         (:ul
-         (loop for item in items
+         (loop with widget-id = (reblocks/widgets/dom:dom-id widget)
+               for item in items
                for idx upfrom 0
+               for item-id = (format nil "~A-choice-~A"
+                                     ;; It is important to generate unique
+                                     ;; id for each item even when there is
+                                     ;; more than one typeahead widget on a page:
+                                     widget-id
+                                     idx)
                do (:li (:input :type "radio"
                                :name "result"
-                               :id (format nil "choice-~A" idx)
-                               :onchange "this.form.onsubmit()"
+                               :id item-id
+                               :onchange "console.log('TRACE, this: ', this); console.log('TRACE, this.form: ', this.form); this.form.onsubmit()"
                                :value idx)
-                       (:label :for (format nil "choice-~A" idx)
+                       (:label :for item-id
                                (reblocks/widget:render item)))))))))
 
 
