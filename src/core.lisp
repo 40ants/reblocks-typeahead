@@ -142,7 +142,7 @@
                do (:li (:input :type "radio"
                                :name "result"
                                :id item-id
-                               :onchange "console.log('TRACE, this: ', this); console.log('TRACE, this.form: ', this.form); this.form.onsubmit()"
+                               :onchange "this.form.onsubmit()"
                                :value idx)
                        (:label :for item-id
                                (reblocks/widget:render item)))))))))
