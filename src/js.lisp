@@ -45,7 +45,7 @@
     
     (defun select-next-or-previous-item (typeahead down-p)
       (chain console
-             (log "Selecting next item" typeahead))
+             (log "Selecting next item" typeahead down-p))
       (let ((current-item (chain typeahead
                                  (query-selector ".typeahead-results > ul > li.active"))))
         (flet ((select (item)
@@ -80,47 +80,37 @@
                (select first-item)))))))
 
     (defun init-typeahead (typeahead)
-      (chain console
-             (log "Initializing typeahead"
-                  typeahead))
-      (let ((input (chain typeahead
-                          (query-selector ".typeahead-input"))))
-        (chain input
-               (add-event-listener "input"
-                                   (lambda (event)
-                                     (when (eql (@ event target)
-                                                input)
-                                       (schedule-update event)))))
-        (chain typeahead
-               (add-event-listener "keydown"
-                                   (lambda (event)
-                                     ;; (chain console (log "KEY CODE" (@ event target)))
-                                     (when (or (eql (@ event target)
-                                                    typeahead)
-                                               (eql (@ event target)
-                                                    input))
-                                       (let ((key-code (@ event key-code)))
-                                         ;; (chain console (log "KEY CODE" key-code))
-                                         (case key-code
-                                           (38
-                                            (select-previous-item typeahead)
-                                            (chain event (prevent-default)))
-                                           (40
-                                            (select-next-item typeahead)
-                                            (chain event (prevent-default))))))))))
-      ;; (chain node
-      ;;        (add-event-listener
-      ;;         "click"
-      ;;         (lambda (event)
-      ;;           (when (eql (ps:@ event target)
-      ;;                      node)
-      ;;             (chain event
-      ;;                    (prevent-default))
-      ;;             (chain node
-      ;;                    class-list
-      ;;                    (remove "active"))))))
-      
-      )
+      (unless (@ typeahead dataset initialized)
+        (chain console
+               (log "Initializing typeahead"
+                    typeahead))
+        (let ((input (chain typeahead
+                            (query-selector ".typeahead-input"))))
+          (chain input
+                 (add-event-listener "input"
+                                     (lambda (event)
+                                       (when (eql (@ event target)
+                                                  input)
+                                         (schedule-update event)))))
+          (chain typeahead
+                 (add-event-listener "keydown"
+                                     (lambda (event)
+                                       ;; (chain console (log "KEY CODE" (@ event target)))
+                                       (when (or (eql (@ event target)
+                                                      typeahead)
+                                                 (eql (@ event target)
+                                                      input))
+                                         (let ((key-code (@ event key-code)))
+                                           ;; (chain console (log "KEY CODE" key-code))
+                                           (case key-code
+                                             (38
+                                              (select-previous-item typeahead)
+                                              (chain event (prevent-default)))
+                                             (40
+                                              (select-next-item typeahead)
+                                              (chain event (prevent-default)))))))))
+          (setf (@ typeahead dataset initialized)
+                t))))
 
     (defun init-typeaheads ()
       (chain console
