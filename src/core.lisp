@@ -16,7 +16,13 @@
            #:typeahead-results
            #:results-items
            #:process-typeahead-choice
-           #:focus-in))
+           #:focus-in
+           #:input-value
+           #:placeholder
+           #:on-select
+           #:on-empty-selection
+           #:update-results
+           #:hide-results))
 (in-package #:reblocks-typeahead)
 
 
@@ -30,7 +36,10 @@
             :reader typeahead-results)
    (placeholder :initform nil
                 :initarg :placeholder
-                :accessor placeholder)))
+                :accessor placeholder)
+   (value :initform nil
+          :initarg :value
+          :accessor input-value)))
 
 
 (defgeneric on-select (item)
@@ -101,6 +110,7 @@
         (:input :type "text"
                 :name "query"
                 :placeholder (placeholder widget)
+                :value (input-value widget)
                 :data-action-code action-code
                 :class "typeahead-input"
                 :autocomplete "off")
