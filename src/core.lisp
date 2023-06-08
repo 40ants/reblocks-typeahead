@@ -39,38 +39,59 @@
                 :accessor placeholder)
    (value :initform nil
           :initarg :value
-          :accessor input-value)))
+          :accessor input-value))
+  (:documentation "Base class for custom typeahead widgets.
+
+                   Define you own widget class based on the TYPEAHEAD-WIDGET
+                   and also define methods for following generic-functions.
+
+                   Mandatory:
+
+                   - EXECUTE-QUERY
+
+                   Optional:
+
+                   - ON-SELECT
+                   - ON-EMPTY-SELECTION
+                   - PROCESS-TYPEAHEAD-CHOICE
+                   - UPDATE-RESULTS
+                   - HIDE-RESULTS"))
 
 
-(defgeneric on-select (item)
+(defgeneric on-select (widget item)
   (:documentation "Called when user selected an item in the typeahead results.")
-  (:method ((item t))
-    (log:error "Item ~A was selected." item)
+  (:method ((widget typeahead-widget)
+            (item t))
+    (log:debug "Item ~A was selected." item)
+    (hide-results widget)
     (values)))
 
 
 (defgeneric on-empty-selection (widget query)
   (:documentation "Called when user entered some query but didn't selected any item, just pressed Enter.")
   (:method ((widget typeahead-widget) query)
-    (log:error "User entered ~S but didn't choose any item." query)
+    (log:debug "User entered ~S but didn't choose any item." query)
+    (hide-results widget)
     (values)))
 
 
 (defgeneric process-typeahead-choice (widget query selected-item-idx)
+  (:documentation "Calls either ON-SELECT or ON-EMPTY-SELECTION depending on if user has choosen an item from the dropdown.")
   (:method ((widget typeahead-widget) query selected-item-idx)
-    (log:error "User entered" query selected-item-idx)
+    (log:debug "User entered" query selected-item-idx)
     (cond
       (selected-item-idx
        (let* ((items (results-items (typeahead-results widget)))
               (selected-item (nth selected-item-idx items)))
          (log:debug "Opening selected item" selected-item)
-         (on-select selected-item)))
+         (on-select widget selected-item)))
       (t
        (log:debug "Opening empty selection")
        (on-empty-selection widget query)))))
 
 
 (defgeneric update-results (widget query)
+  (:documentation "Calls EXECUTE-QUERY generic-function and updates the dropdown widget.")
   (:method ((widget typeahead-widget) query)
     (log:info "Updating typeahead results using \"~A\"" query)
 
@@ -81,6 +102,7 @@
 
 
 (defgeneric hide-results (widget)
+  (:documentation "Hides dropdown widget. Call this method from a custom ON-SELECT or ON-EMPTY-SELECTION methods.")
   (:method ((widget typeahead-widget))
     (log:info "Hiding typeahead results.")
 
@@ -91,11 +113,21 @@
 
 
 (defgeneric execute-query (widget query)
-  (:method ((widget typeahead-results) query)
+  (:documentation "A method for this generic-function should return a list of widgets to be shown in reponse to the given text query.
+                   This method should return a list of widgets.
+                   To make simple widgets out of strings, you can use
+                   REBLOCKS/WIDGETS/STRING-WIDGET:MAKE-STRING-WIDGET function.")
+  (:method ((widget typeahead-widget) query)
     (list
      (reblocks/widgets/string-widget:make-string-widget
-      (format nil "Please, define REBLOCKS-TYPEAHEAD:EXECUTE-QUERY method to process \"~A\""
-              query)))))
+
+      (let ((class-name (class-name (class-of widget))))
+        (if (eql class-name 'typeahead-widget)
+            (format nil "Please, define a subclass REBLOCKS-TYPEAHEAD:TYPEAHEAD-WIDGET for and a method REBLOCKS-TYPEAHEAD:EXECUTE-QUERY to process \"~A\" query."
+                    query)
+            (format nil "Please, define REBLOCKS-TYPEAHEAD:EXECUTE-QUERY method to process \"~A\" query on ~A widget."
+                    query
+                    (class-name (class-of widget)))))))))
 
 
 (defmethod reblocks/widget:render ((widget typeahead-widget))
