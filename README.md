@@ -54,7 +54,7 @@ to learn how these methods can be implemented.
 
 <a id="x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-22REBLOCKS-TYPEAHEAD-22-29-20PACKAGE-29"></a>
 
-#### [package](22af) `reblocks-typeahead`
+#### [package](7109) `reblocks-typeahead`
 
 <a id="x-28REBLOCKS-TYPEAHEAD-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-TYPEAHEAD-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -66,19 +66,19 @@ to learn how these methods can be implemented.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-RESULTS-20CLASS-29"></a>
 
-###### [class](5477) `reblocks-typeahead:typeahead-results` (ui-widget)
+###### [class](946f) `reblocks-typeahead:typeahead-results` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3ARESULTS-ITEMS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-RESULTS-29-29"></a>
 
-###### [reader](dfb4) `reblocks-typeahead:results-items` (typeahead-results) (= nil)
+###### [reader](d193) `reblocks-typeahead:results-items` (typeahead-results) (= nil)
 
 **Accessors**
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3ARESULTS-ITEMS-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-RESULTS-29-29"></a>
 
-###### [accessor](dfb4) `reblocks-typeahead:results-items` (typeahead-results) (= nil)
+###### [accessor](d193) `reblocks-typeahead:results-items` (typeahead-results) (= nil)
 
 <a id="x-28REBLOCKS-TYPEAHEAD-DOCS-2FINDEX-3A-3A-40REBLOCKS-TYPEAHEAD-24TYPEAHEAD-WIDGET-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -86,7 +86,7 @@ to learn how these methods can be implemented.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-20CLASS-29"></a>
 
-###### [class](c283) `reblocks-typeahead:typeahead-widget` (ui-widget)
+###### [class](20cb) `reblocks-typeahead:typeahead-widget` (ui-widget)
 
 Base class for custom typeahead widgets.
 
@@ -109,25 +109,25 @@ Optional:
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AINPUT-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-29-29"></a>
 
-###### [reader](1729) `reblocks-typeahead:input-value` (typeahead-widget) (:value = nil)
+###### [reader](5854) `reblocks-typeahead:input-value` (typeahead-widget) (:value = nil)
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3APLACEHOLDER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-29-29"></a>
 
-###### [reader](136f) `reblocks-typeahead:placeholder` (typeahead-widget) (:placeholder = nil)
+###### [reader](96b6) `reblocks-typeahead:placeholder` (typeahead-widget) (:placeholder = nil)
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-RESULTS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-29-29"></a>
 
-###### [reader](e485) `reblocks-typeahead:typeahead-results` (typeahead-widget) (= (make-instance 'typeahead-results))
+###### [reader](aafb) `reblocks-typeahead:typeahead-results` (typeahead-widget) (= (make-instance 'typeahead-results))
 
 **Accessors**
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AINPUT-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-29-29"></a>
 
-###### [accessor](1729) `reblocks-typeahead:input-value` (typeahead-widget) (:value = nil)
+###### [accessor](5854) `reblocks-typeahead:input-value` (typeahead-widget) (:value = nil)
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3APLACEHOLDER-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-TYPEAHEAD-3ATYPEAHEAD-WIDGET-29-29"></a>
 
-###### [accessor](136f) `reblocks-typeahead:placeholder` (typeahead-widget) (:placeholder = nil)
+###### [accessor](96b6) `reblocks-typeahead:placeholder` (typeahead-widget) (:placeholder = nil)
 
 <a id="x-28REBLOCKS-TYPEAHEAD-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-TYPEAHEAD-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -135,7 +135,7 @@ Optional:
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AEXECUTE-QUERY-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](7db0) `reblocks-typeahead:execute-query` widget query
+##### [generic-function](23ef) `reblocks-typeahead:execute-query` widget query
 
 A method for this generic-function should return a list of widgets to be shown in reponse to the given text query.
 This method should return a list of widgets.
@@ -144,31 +144,31 @@ To make simple widgets out of strings, you can use
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AHIDE-RESULTS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](6e26) `reblocks-typeahead:hide-results` widget
+##### [generic-function](626e) `reblocks-typeahead:hide-results` widget
 
 Hides dropdown widget. Call this method from a custom [`on-select`][0a41] or [`on-empty-selection`][d21f] methods.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AON-EMPTY-SELECTION-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](bddc) `reblocks-typeahead:on-empty-selection` widget query
+##### [generic-function](ce86) `reblocks-typeahead:on-empty-selection` widget query
 
 Called when user entered some query but didn't selected any item, just pressed Enter.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AON-SELECT-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](f1eb) `reblocks-typeahead:on-select` widget item
+##### [generic-function](c971) `reblocks-typeahead:on-select` widget item
 
 Called when user selected an item in the typeahead results.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3APROCESS-TYPEAHEAD-CHOICE-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](3fcc) `reblocks-typeahead:process-typeahead-choice` widget query selected-item-idx
+##### [generic-function](429d) `reblocks-typeahead:process-typeahead-choice` widget query selected-item-idx
 
 Calls either [`on-select`][0a41] or [`on-empty-selection`][d21f] depending on if user has choosen an item from the dropdown.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AUPDATE-RESULTS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](b866) `reblocks-typeahead:update-results` widget query
+##### [generic-function](5cc9) `reblocks-typeahead:update-results` widget query
 
 Calls [`execute-query`][c957] generic-function and updates the dropdown widget.
 
@@ -178,7 +178,7 @@ Calls [`execute-query`][c957] generic-function and updates the dropdown widget.
 
 <a id="x-28REBLOCKS-TYPEAHEAD-3AFOCUS-IN-20FUNCTION-29"></a>
 
-##### [function](450d) `reblocks-typeahead:focus-in` widget
+##### [function](c2f0) `reblocks-typeahead:focus-in` widget
 
 
 [784a]: https://40ants.com/reblocks-typeahead/
@@ -192,20 +192,20 @@ Calls [`execute-query`][c957] generic-function and updates the dropdown widget.
 [07eb]: https://40ants.com/reblocks/widgets/#x-28REBLOCKS-2FWIDGETS-2FSTRING-WIDGET-3AMAKE-STRING-WIDGET-20FUNCTION-29
 [91a7]: https://github.com/40ants/reblocks-typeahead
 [f8ea]: https://github.com/40ants/reblocks-typeahead/actions
-[22af]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L1
-[6e26]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L104
-[7db0]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L115
-[450d]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L163
-[5477]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L29
-[dfb4]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L30
-[c283]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L34
-[e485]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L35
-[136f]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L37
-[1729]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L40
-[f1eb]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L61
-[bddc]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L70
-[3fcc]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L78
-[b866]: https://github.com/40ants/reblocks-typeahead/blob/58f4001053f7961f6db6bfd23839419782a20246/src/core.lisp#L93
+[7109]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L1
+[626e]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L104
+[23ef]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L115
+[c2f0]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L163
+[946f]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L29
+[d193]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L30
+[20cb]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L34
+[aafb]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L35
+[96b6]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L37
+[5854]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L40
+[c971]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L61
+[ce86]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L70
+[429d]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L78
+[5cc9]: https://github.com/40ants/reblocks-typeahead/blob/9dc185c9a72f8a2969f818560c521f3cf97aeeec/src/core.lisp#L93
 [8267]: https://github.com/40ants/reblocks-typeahead/issues
 [3c58]: https://github.com/40ants/reblocks-typeahead/tree/master/example
 [7921]: https://quickdocs.org/parenscript
