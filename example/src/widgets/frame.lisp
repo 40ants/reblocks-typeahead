@@ -34,7 +34,7 @@
 
 
 (defmethod render ((widget frame-widget))
-  (reblocks/html:with-html
+  (reblocks/html:with-html ()
     (:header
      (:div :class "navbar"
            (:div :class "main-logo"
