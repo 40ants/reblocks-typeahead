@@ -33,7 +33,7 @@
 
 
 (defmethod reblocks/widget:render ((widget search-widget))
-  (with-html
+  (with-html ()
     (when (selected-countries widget)
       (:ul :class "countries"
            (loop for name in (selected-countries widget)

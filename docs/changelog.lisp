@@ -9,6 +9,10 @@
                               "ASDF"
                               "REPL"
                               "HTTP"))
+  (0.3.0 2025-06-17
+         "## Fixes
+
+          * Code was fixed to support latest changes in the Reblocks.")
   (0.2.0 2023-06-08
          "## Changes
 

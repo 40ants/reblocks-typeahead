@@ -169,7 +169,7 @@
 
 (defmethod reblocks/widget:render ((widget typeahead-results))
   (let ((items (results-items widget)))
-    (reblocks/html:with-html
+    (reblocks/html:with-html ()
       (when items
         (:ul
          (loop with widget-id = (reblocks/widgets/dom:dom-id widget)
