@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>reblocks-typeahead-docs ChangeLog</title>
+        <link>https://40ants.com/reblocks-typeahead/</link>
+        <generator>xml-emitter</generator>
+        <language>en-us</language>
+        <item>
+            <title>0.3.0  (2025-06-17)</title>
+            <description>&lt;h1 id=&quot;fixes&quot;&gt;Fixes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Code was fixed to support latest changes in the Reblocks.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Tue, 17 Jun 2025 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.2.0  (2023-06-08)</title>
+            <description>&lt;h1 id=&quot;changes&quot;&gt;Changes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Generic-function &lt;a href=&quot;https://40ants.com/reblocks-typeahead/#x-28REBLOCKS-TYPEAHEAD-3AON-SELECT-20GENERIC-FUNCTION-29&quot; data-document=&quot;https://40ants.com/reblocks-typeahead/&quot; data-node=&quot;x-28REBLOCKS-TYPEAHEAD-3AON-SELECT-20GENERIC-FUNCTION-29&quot;&gt;&lt;code&gt;reblocks-typeahead:on-select&lt;/code&gt;&lt;/a&gt; now accepts two arguments and the first one is a typeahead widget.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Default methods &lt;a href=&quot;https://40ants.com/reblocks-typeahead/#x-28REBLOCKS-TYPEAHEAD-3AON-SELECT-20GENERIC-FUNCTION-29&quot; data-document=&quot;https://40ants.com/reblocks-typeahead/&quot; data-node=&quot;x-28REBLOCKS-TYPEAHEAD-3AON-SELECT-20GENERIC-FUNCTION-29&quot;&gt;&lt;code&gt;reblocks-typeahead:on-select&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://40ants.com/reblocks-typeahead/#x-28REBLOCKS-TYPEAHEAD-3AON-EMPTY-SELECTION-20GENERIC-FUNCTION-29&quot; data-document=&quot;https://40ants.com/reblocks-typeahead/&quot; data-node=&quot;x-28REBLOCKS-TYPEAHEAD-3AON-EMPTY-SELECTION-20GENERIC-FUNCTION-29&quot;&gt;&lt;code&gt;reblocks-typeahead:on-empty-selection&lt;/code&gt;&lt;/a&gt; now close search results.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.1.0  (2023-02-05)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Initial version.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>
